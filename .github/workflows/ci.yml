@@ -60,8 +60,8 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Dker image
-        run: docker build -t ${{ vars.DOCKERHUB_USERNAME }}/devops-data-pipeline:1.0 .
+      - name: Build Docker image
+        run: docker build -t ${{ vars.DOCKERHUB_USERNAME }}/devops-data-pipeline:run-${{ github.run_number }} .
 
-      - name: Push Docker iocmage
-        run: docker push ${{ vars.DOCKERHUB_USERNAME }}/devops-data-pipeline:1.0      
+      - name: Push Docker image
+        run: docker push ${{ vars.DOCKERHUB_USERNAME }}/devops-data-pipeline:run-${{ github.run_number }}   
